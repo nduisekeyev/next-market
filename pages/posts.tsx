@@ -2,10 +2,12 @@ import React, { FunctionComponent, useState, useEffect } from "react";
 import Router from "next/router";
 import MainLayout from "../components/MainLayout";
 
-interface PostsProps {}
+interface PostsProps {
+  posts: object;
+}
 
-const Posts: FunctionComponent<PostsProps> = () => {
-  const [posts, setPosts] = useState([]);
+const Posts = ({ posts }: PostsProps) => {
+  // const [posts, setPosts] = useState([]);
 
   // Without using SSR, since <pre>[]</pre> - an empty array
   // useEffect(() => {
@@ -25,12 +27,19 @@ const Posts: FunctionComponent<PostsProps> = () => {
     <MainLayout title={"Posts"}>
       <h1>Posts</h1>
       <button onClick={linkHandler}>Go Back to Home</button>
-      <pre>{JSON.stringify([], null, 2)}</pre>
+      <pre>{JSON.stringify(posts, null, 2)}</pre>
     </MainLayout>
   );
 };
 
 export default Posts;
+
+Posts.getInitialProps = async () => {
+  const response = await fetch("http://localhost:4200/posts");
+  const posts = await response.json();
+
+  return { posts };
+};
 
 // posts
 // post/47
