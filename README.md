@@ -10,6 +10,10 @@ npm run dev
 yarn dev
 ```
 
+## In Next.js (getInitialProps)
+
+`getInitialProps` enables server-side rendering and can't be statically optimized. It runs every time we open a page. If a page is requested directly by a URL, it runs on the server. On the other hand, if we open a page through a link or UI element that uses next/link or next/router, it runs on the client.
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
