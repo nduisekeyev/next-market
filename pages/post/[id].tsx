@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
+import { NextPage } from "next";
 import MainLayout from "../../components/MainLayout";
 
 interface PostProps {
@@ -12,8 +14,7 @@ interface PostServerProps {
   title: string;
   body: string;
 }
-
-export default function Post({ post: serverPost }: PostProps) {
+const Post: NextPage<PostProps> = ({ post: serverPost }) => {
   const [post, setPost] = useState(serverPost);
   const router = useRouter();
 
@@ -48,8 +49,9 @@ export default function Post({ post: serverPost }: PostProps) {
       )}
     </>
   );
-}
+};
 
+// If want to combine Backend and Frontend, better use getInitialProps
 Post.getInitialProps = async ({ query, req }: any) => {
   if (!req) {
     return { post: null }; // if there is no post from server return null
@@ -60,3 +62,15 @@ Post.getInitialProps = async ({ query, req }: any) => {
 
   return { post };
 };
+
+// using SSR only with next js getServerSideProps recommended to use
+// difference from getInitialProps that only runs on server-side and never runs on the browser.
+// export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+//   const response = await fetch(`http://localhost:4200/posts/${query.id}`);
+//   const post = await response.json();
+//   console.log("post", post);
+
+//   return { props: { post } };
+// };
+
+export default Post;

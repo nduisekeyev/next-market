@@ -1,13 +1,14 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import Link from "next/link";
 import Router from "next/router";
+import { NextPage } from "next";
 import MainLayout from "../components/MainLayout";
 
 interface PostsProps {
   posts: any;
 }
 
-const Posts = ({ posts: serverPosts }: PostsProps) => {
+const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
   const [posts, setPosts] = useState(serverPosts);
 
   useEffect(() => {
@@ -49,9 +50,7 @@ const Posts = ({ posts: serverPosts }: PostsProps) => {
   );
 };
 
-export default Posts;
-
-Posts.getInitialProps = async ({ req }: any) => {
+Posts.getInitialProps = async ({ req }) => {
   if (!req) {
     return { posts: null };
   }
@@ -61,5 +60,17 @@ Posts.getInitialProps = async ({ req }: any) => {
   return { posts };
 };
 
-// posts
-// post/47
+// export const getServerSideProps = async ({ req }: any) => {
+//   const res = await fetch("http://localhost:4200/posts/");
+//   const posts = await res.json();
+
+//   if (!req) {
+//     return {
+//       posts: null,
+//     };
+//   }
+
+//   return { props: { posts } };
+// };
+
+export default Posts;
