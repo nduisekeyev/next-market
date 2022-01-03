@@ -1,11 +1,12 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import Link from "next/link";
 import Router from "next/router";
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import MainLayout from "../components/MainLayout";
+import { MyPost } from "../interfaces/posts";
 
 interface PostsProps {
-  posts: any;
+  posts: MyPost[];
 }
 
 const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
@@ -50,10 +51,11 @@ const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
   );
 };
 
-Posts.getInitialProps = async ({ req }) => {
+Posts.getInitialProps = async ({ req }: NextPageContext) => {
   if (!req) {
     return { posts: null };
   }
+
   const response = await fetch("http://localhost:4200/posts");
   const posts = await response.json();
 

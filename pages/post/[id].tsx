@@ -2,18 +2,14 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { GetServerSideProps } from "next";
-import { NextPage } from "next";
+import { NextPage, NextPageContext } from "next";
 import MainLayout from "../../components/MainLayout";
+import { MyPost } from "../../interfaces/posts";
 
 interface PostProps {
-  post: PostServerProps;
+  post: MyPost;
 }
 
-interface PostServerProps {
-  id: number;
-  title: string;
-  body: string;
-}
 const Post: NextPage<PostProps> = ({ post: serverPost }) => {
   const [post, setPost] = useState(serverPost);
   const router = useRouter();
@@ -58,7 +54,6 @@ Post.getInitialProps = async ({ query, req }) => {
   }
   const response = await fetch(`http://localhost:4200/posts/${query.id}`);
   const post = await response.json();
-  console.log("post", post);
 
   return { post };
 };
