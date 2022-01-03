@@ -52,7 +52,7 @@ const Post: NextPage<PostProps> = ({ post: serverPost }) => {
 };
 
 // If want to combine Backend and Frontend, better use getInitialProps
-Post.getInitialProps = async ({ query, req }: any) => {
+Post.getInitialProps = async ({ query, req }) => {
   if (!req) {
     return { post: null }; // if there is no post from server return null
   }
