@@ -14,7 +14,7 @@ const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
 
   useEffect(() => {
     const load = async () => {
-      const response = await fetch("http://localhost:4200/posts");
+      const response = await fetch(`${process.env.API_URL}/post`);
       const json = await response.json();
       setPosts(json);
     };
@@ -56,14 +56,14 @@ Posts.getInitialProps = async ({ req }: NextPageContext) => {
     return { posts: null };
   }
 
-  const response = await fetch("http://localhost:4200/posts");
+  const response = await fetch(`${process.env.API_URL}/posts`);
   const posts = await response.json();
 
   return { posts };
 };
 
 // export const getServerSideProps = async ({ req }: any) => {
-//   const res = await fetch("http://localhost:4200/posts/");
+//   const res = await fetch("http://localhost:4300/posts/");
 //   const posts = await res.json();
 
 //   if (!req) {

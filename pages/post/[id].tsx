@@ -17,7 +17,7 @@ const Post: NextPage<PostProps> = ({ post: serverPost }) => {
   useEffect(() => {
     const load = async () => {
       const response = await fetch(
-        `http://localhost:4200/posts/${router.query.id}`
+        `http://${process.env.API_URL}/posts/${router.query.id}`
       );
       const data = await response.json();
       console.log("data", data);
@@ -52,7 +52,7 @@ Post.getInitialProps = async ({ query, req }) => {
   if (!req) {
     return { post: null }; // if there is no post from server return null
   }
-  const response = await fetch(`http://localhost:4200/posts/${query.id}`);
+  const response = await fetch(`${process.env.API_URL}/posts/${query.id}`);
   const post = await response.json();
 
   return { post };
@@ -61,7 +61,7 @@ Post.getInitialProps = async ({ query, req }) => {
 // using SSR only with next js getServerSideProps recommended to use
 // difference from getInitialProps that only runs on server-side and never runs on the browser.
 // export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-//   const response = await fetch(`http://localhost:4200/posts/${query.id}`);
+//   const response = await fetch(`http://localhost:4300/posts/${query.id}`);
 //   const post = await response.json();
 //   console.log("post", post);
 
