@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-interface IdApiNextRequest {
+interface IdApiNextRequest extends NextApiRequest {
   query: {
-    id: number | string;
+    id: string;
   };
 }
 

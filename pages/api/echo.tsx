@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-interface MessageNextApiRequest extends NextApiResponse {
+interface MessageNextApiRequest extends NextApiRequest {
   query: {
     message?: string;
   };
