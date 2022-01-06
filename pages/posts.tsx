@@ -14,7 +14,7 @@ const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
 
   useEffect(() => {
     const load = async () => {
-      const response = await fetch(`${process.env.API_URL}/post`);
+      const response = await fetch(`${process.env.API_URL}/posts`);
       const json = await response.json();
       setPosts(json);
     };
