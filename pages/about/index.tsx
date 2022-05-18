@@ -1,7 +1,8 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import Router from "next/router";
 import MainLayout from "../../components/MainLayout";
 import { NextPage } from "next";
+import { Typography } from "@mui/material";
 
 interface AboutProps {
   title: string;
@@ -14,7 +15,7 @@ const About: NextPage<AboutProps> = ({ title }) => {
 
   return (
     <MainLayout title={"About page"}>
-      <h1>{title}</h1>
+      <Typography variant="h3">{title}</Typography>
 
       <button onClick={linkHandler}>Go Back to Home</button>
       <button onClick={() => Router.push("/posts")}>Go To Posts</button>

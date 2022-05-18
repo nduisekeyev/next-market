@@ -18,5 +18,50 @@
   ],
   "about": { "title": "About Page" },
   "comments": [{ "id": 1, "body": "some comment", "postId": 1 }],
+  "home": {
+    "id": 1,
+    "title": "Home page",
+    "description": "Description home has a lot of more"
+  },
+  "featuredProducts": {
+    "products": [
+      {
+        "uniUidRef": 49090490,
+        "brandName": "Lancôme",
+        "variantName": "Benefit - Roller Liner Liquid Eyeliner Mini Black matte colour 30ml.",
+        "spec": "100ml, Gloy Red",
+        "ourPrice": 199,
+        "discountPrice": 19.99,
+        "discountPercentage": 20,
+        "productImage": "/images/product-3.jpg",
+        "categoryName": "Make up",
+        "categoryRef": 434636052
+      },
+      {
+        "uniUidRef": 332131234,
+        "brandName": "Estee Lauder",
+        "variantName": "Estée Lauder Advanced Night Repair Eye Supercharged Complex Synchronized Recovery Duo Set - 2x15ml",
+        "spec": "100ml, Gloy Red",
+        "ourPrice": 25.99,
+        "discountPrice": 99.99,
+        "discountPercentage": 25,
+        "productImage": "/images/product-3.jpg",
+        "categoryName": "Shampoo",
+        "categoryRef": 102401420
+      },
+      {
+        "uniUidRef": 8989123112,
+        "brandName": "Phillips",
+        "variantName": "Some kind of tooth cleaning implement",
+        "spec": "100ml, Gloy Red",
+        "ourPrice": 123.45,
+        "discountPrice": 89.99,
+        "discountPercentage": 45,
+        "productImage": "/images/product-3.jpg",
+        "categoryName": "Honey",
+        "categoryRef": 6954351
+      }
+    ]
+  },
   "profile": { "name": "typicode" }
 }

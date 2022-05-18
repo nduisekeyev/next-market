@@ -41,6 +41,7 @@ const MainLayout: FunctionComponent<MainProps> = ({
           display: flex;
           justify-content: space-around;
           align-items: center;
+          z-index: 1;
         }
 
         nav a {

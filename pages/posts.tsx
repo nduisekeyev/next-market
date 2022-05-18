@@ -1,9 +1,10 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import { NextPage, NextPageContext } from "next";
 import MainLayout from "../components/MainLayout";
 import { MyPost } from "../interfaces/posts";
+import { Typography } from "@mui/material";
 
 interface PostsProps {
   posts: MyPost[];
@@ -33,7 +34,7 @@ const Posts: NextPage<PostsProps> = ({ posts: serverPosts }) => {
         <MainLayout title={"Loading"}>Loading...</MainLayout>
       ) : (
         <MainLayout title={"Posts"}>
-          <h1>Posts</h1>
+          <Typography variant="h3">Posts</Typography>
           <button onClick={linkHandler}>Go Back to Home</button>
 
           <ul>

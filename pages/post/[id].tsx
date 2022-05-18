@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
-import { NextPage, NextPageContext } from "next";
+import { NextPage } from "next";
 import MainLayout from "../../components/MainLayout";
 import { MyPost } from "../../interfaces/posts";
 
@@ -17,7 +16,7 @@ const Post: NextPage<PostProps> = ({ post: serverPost }) => {
   useEffect(() => {
     const load = async () => {
       const response = await fetch(
-        `http://${process.env.API_URL}/posts/${router.query.id}`
+        `${process.env.API_URL}/posts/${router.query.id}`
       );
       const data = await response.json();
       console.log("data", data);
