@@ -16,7 +16,7 @@
     "@mui/material": "^5.8.0",
     "concurrently": "^7.0.0",
     "dotenv": "^10.0.0",
-    "next": "12.0.7",
+    "next": "12.1.0",
     "nextjs-progressbar": "0.0.13",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
