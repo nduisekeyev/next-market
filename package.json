@@ -11,7 +11,7 @@
     "mock": "json-server --w db.json -p 4300 -d 2000"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.0",
+    "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.8.0",
     "concurrently": "^7.0.0",
